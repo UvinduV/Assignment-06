@@ -5,9 +5,86 @@
     <title>Sign-In</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/normalize.css">
+    <style>
+        body{
+            position: relative;
+        }
 
+        #log-form{
+            width: 500px;
+            height: 350px;
+            background: lightgray;
+            border-radius: 10px;
+            padding: 20px;
+
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+        }
+        #btnSign{
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        h1{
+            font-size: 250px;
+            font-family: sans-serif;
+            color: gray;
+            position: absolute;
+            top: 300px;
+            left: 140px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
+
+<header>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img id="logo" src="assets/sunmartLogo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
+                <b>Sun Mart</b>
+            </a>
+
+        </div>
+    </nav>
+</header>
+
+<h1>
+    Sun Mart
+</h1>
+
+<section>
+    <div id="log-form">
+        <form>
+            <h2>Sign In</h2>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="col">
+                <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+            </div>
+            <br>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+            </div>
+
+            <a href="home.html">
+                <button id="btnSign" type="button" class="btn btn-primary">Sign In</button>
+            </a>
+
+
+        </form>
+    </div>
+</section>
 
 
 
