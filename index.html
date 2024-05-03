@@ -203,8 +203,8 @@
             border-radius: 10px;
             background: whitesmoke;
             position: absolute;
-            top: 90px;
-            left: 180px;
+            top: 86px;
+            left: 160px;
             margin: auto;
             padding: 5px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -215,7 +215,7 @@
             border-radius: 10px;
             background: whitesmoke;
             position: absolute;
-            top: 90px;
+            top: 86px;
             right: 50px;
             margin: auto;
             padding: 5px;
@@ -226,7 +226,7 @@
             width: 450px;
             height: 300px;
             position: absolute;
-            top: 330px;
+            top: 314px;
             right: 50px;
             margin: auto;
             padding: 5px;
@@ -236,7 +236,7 @@
             width: 650px;
             position: absolute;
             top: 370px;
-            left: 180px;
+            left: 160px;
 
             margin: auto;
         }
@@ -257,7 +257,7 @@
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img id="logo" src="assets/sunmartLogo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
+                <img id="logo" src="assets/sunmartLogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-center">
                 <b>Sun Mart</b>
             </a>
             <ul class="nav nav-underline">
@@ -360,25 +360,25 @@
     <br>
 
     <section id="sidebtn">
-        <a class="nav-link" href="customer.html">
+        <span class="nav-link" id="nav-btn-customer">
             <div id="div1" class="BtnManage ">
                 <h4>Manage</h4>
                 <h3>Customer</h3>
             </div>
-        </a>
-        <a class="nav-link" href="store.html">
+        </span>
+        <span class="nav-link" id="nav-btn-store">
             <div id="div2" class="BtnManage bg-opacity-75">
                 <h4>Manage</h4>
                 <h3>Store</h3>
             </div>
-        </a>
+        </span>
 
-        <a class="nav-link" href="order.html">
+        <span class="nav-link" id="nav-btn-order">
             <div id="div3" class="BtnManage bg-opacity-50">
                 <h4>Manage</h4>
                 <h3>Orders</h3>
             </div>
-        </a>
+        </span>
 
     </section>
     <h2> Contact Us :</h2>
@@ -818,6 +818,33 @@
         $('#store-sec').css({display:'block'});
     })
     $('#nav-order').on('click',()=>{
+        $('#home-sec').css({display:'none'});
+        $('#login-sec').css({display:'none'});
+        $('#customer-sec').css({display:'none'});
+        $('#store-sec').css({display:'none'});
+        $('#order-sec').css({display:'block'});
+    })
+
+    /*--home sectio-side btn*/
+
+    /*btn- customer*/
+    $('#nav-btn-customer').on('click',()=>{
+        $('#home-sec').css({display:'none'});
+        $('#login-sec').css({display:'none'});
+        $('#store-sec').css({display:'none'});
+        $('#order-sec').css({display:'none'});
+        $('#customer-sec').css({display:'block'});
+    })
+    /*btn-store*/
+    $('#nav-btn-store').on('click',()=>{
+        $('#home-sec').css({display:'none'});
+        $('#login-sec').css({display:'none'});
+        $('#order-sec').css({display:'none'});
+        $('#customer-sec').css({display:'none'});
+        $('#store-sec').css({display:'block'});
+    })
+    /*btn-orders*/
+    $('#nav-btn-order').on('click',()=>{
         $('#home-sec').css({display:'none'});
         $('#login-sec').css({display:'none'});
         $('#customer-sec').css({display:'none'});
