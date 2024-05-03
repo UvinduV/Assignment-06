@@ -8,7 +8,7 @@
     <style>
         body{
             position: relative;
-            background: #7d7e82;
+            background: #ffffff;
         }
         /*header*/
         header>nav{
@@ -18,13 +18,13 @@
         header>nav>div>a>img{
             border-radius: 50%;
         }
+
         /*login*/
         #login-sec{
             position: relative;
             background:linear-gradient(rgba(0,0,0,0.6),#ffffff,#4869fa);
             height: 100vh;
         }
-
         #login-sec>#log-form{
             width: 500px;
             height: 350px;
@@ -40,14 +40,13 @@
             margin: auto;
 
         }
-
         #btnSign{
             position: absolute;
             left: 0;
             right: 0;
             margin: auto;
         }
-        h1{
+        #login-sec>h1{
             font-size: 250px;
             font-family: sans-serif;
             color: gray;
@@ -57,6 +56,81 @@
             margin: auto;
             opacity: 60%;
         }
+
+        /*-home-*/
+        #home-sec{
+            background: lightgray;
+        }
+        #home-sec>#sidebtn{
+            height: fit-content;
+            position: absolute;
+        }
+        .BtnManage{
+            width: 350px;
+            height: 60px;
+            background-color: darkblue;
+            border: 2px solid cornflowerblue;
+            color: white;
+            margin-bottom: 20px;
+            border-radius: 0 50px 50px 0;
+            position: relative;
+            margin-left: -120px;
+        }
+        .BtnManage>h3{
+            position: absolute;
+            left: 160px;
+            /*right: 30px;*/
+            top: 10px;
+
+        }
+        #div1{
+            opacity: 1;
+        }
+        #div2{
+            opacity: 75%;
+        }
+        #div3{
+            opacity: 50%;
+        }
+        .BtnManage>h4{
+            position: absolute;
+            left: 32px;
+            /*right: 30px;*/
+            top: 12px;
+
+        }
+        .BtnManage:hover{
+            width: 400px;
+            transition-duration: 3s;
+            margin-left: 0;
+            background-color: blueviolet;
+            color: lightgrey;
+            opacity: 1;
+
+        }
+
+        #home-sec>h2{
+            text-decoration-style: dashed;
+            position: absolute;
+            top: 550px;
+            right: 30px;
+
+
+        }
+        #home-sec>h1{
+            font-size: 250px;
+            font-family: sans-serif;
+            color: gray;
+            position: absolute;
+            top: 300px;
+            left: 140px;
+            margin: auto;
+            opacity: 50%;
+        }
+        .card-body{
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        }
+
 
     </style>
 </head>
@@ -86,7 +160,6 @@
                         <button type="button" class="btn btn-danger">Log Out</button>
                     </a>
                 </li>
-
             </ul>
         </div>
     </nav>
@@ -121,8 +194,80 @@
 
         </form>
     </div>
+</section>
+
+<!--home-sec-->
+<section id="home-sec">
+    <h1>
+        Sun Mart
+    </h1>
+    <br>
+    <br>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div class="card text-center bg-primary-subtle mb-3 border border-primary text-primary" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Customers</h5>
+                        <p class="card-text"></p>
+                        <p class="card-header bg-primary text-white ">60</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center bg-primary-subtle mb-3 border border-primary text-primary" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Stock</h5>
+                        <p class="card-text"></p>
+                        <p class="card-header bg-primary text-white ">250</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center bg-primary-subtle mb-3 border border-primary text-primary" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Orders</h5>
+                        <p class="card-text"></p>
+                        <p class="card-header bg-primary text-white ">120</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <section id="sidebtn">
+        <a class="nav-link" href="customer.html">
+            <div id="div1" class="BtnManage ">
+                <h4>Manage</h4>
+                <h3>Customer</h3>
+            </div>
+        </a>
+        <a class="nav-link" href="store.html">
+            <div id="div2" class="BtnManage bg-opacity-75">
+                <h4>Manage</h4>
+                <h3>Store</h3>
+            </div>
+        </a>
+
+        <a class="nav-link" href="order.html">
+            <div id="div3" class="BtnManage bg-opacity-50">
+                <h4>Manage</h4>
+                <h3>Orders</h3>
+            </div>
+        </a>
+
+    </section>
+    <h2> Contact Us :</h2>
 
 </section>
+
+<!---->
 
 
 
