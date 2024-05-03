@@ -156,7 +156,41 @@
             right: 0;
             margin: auto;
         }
-        #form-tittle{
+        #cust-form-tittle{
+            position: absolute;
+            left: 20px;
+            font-family: sans-serif;
+        }
+
+        /*Store*/
+        #ItemSearch{
+            width: 800px;
+            height: 300px;
+            border-radius: 10px;
+            background: whitesmoke;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #newItem{
+            position: absolute;
+            top: 100px;
+            right: 130px;
+            margin: auto;
+        }
+        #itemTable{
+            width: 1000px;
+            position: absolute;
+            top: 420px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        #item-form-tittle{
             position: absolute;
             left: 20px;
             font-family: sans-serif;
@@ -181,7 +215,7 @@
                     <span class="nav-link" id="nav-customer">Customer</span>
                 </li>
                 <li class="nav-item">
-                    <span class="nav-link" href="store.html">Store</span>
+                    <span class="nav-link" id="nav-store">Store</span>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="order.html">Order</a>
@@ -270,7 +304,7 @@
         </div>
     </div>
     <br>
-    <br>
+    <br>button-addon2
 
     <section id="sidebtn">
         <a class="nav-link" href="customer.html">
@@ -300,15 +334,15 @@
 
 <!--customer-page-->
 <section id="customer-sec">
-    <div id="form-tittle">
+    <div id="cust-form-tittle">
         <h1>Customers</h1>
     </div>
 
     <div id="customerSearch">
         <form class="row g-3">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="search customer" aria-label="search" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                <input type="text" class="form-control" placeholder="search customer" aria-label="search" aria-describedby="cust-search-btn">
+                <button class="btn btn-outline-secondary" type="button" id="cust-search-btn">Search</button>
             </div>
 
             <div class="col-md-6">
@@ -338,35 +372,35 @@
     <div id="newCust">
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newCust-form">
             New Customer
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="newCust-form" tabindex="-1" aria-labelledby="newCust-form-Label" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Customer Register</h1>
+                        <h1 class="modal-title fs-5" id="newCust-form-Label">Customer Register</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="Id" class="form-label">ID:</label>
-                            <input type="text" class="form-control" id="Id" placeholder="">
+                            <label for="nCust-Id" class="form-label">ID:</label>
+                            <input type="text" class="form-control" id="nCust-Id" placeholder="">
                         </div>
                         <div class="mb-3">
-                            <label for="Name" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="Name" placeholder="">
+                            <label for="nCust-Name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="nCust-Name" placeholder="">
                         </div>
                         <div class="mb-3">
-                            <label for="Address" class="form-label">Address:</label>
-                            <input type="text" class="form-control" id="Address" placeholder="">
+                            <label for="nCust-Address" class="form-label">Address:</label>
+                            <input type="text" class="form-control" id="nCust-Address" placeholder="">
                         </div>
                         <div class="mb-3">
-                            <label for="Contact" class="form-label">Contact:</label>
-                            <input type="text" class="form-control" id="Contact" placeholder="">
+                            <label for="nCust-Contact" class="form-label">Contact:</label>
+                            <input type="text" class="form-control" id="nCust-Contact" placeholder="">
                         </div>
                     </div>
 
@@ -414,6 +448,122 @@
     </div>
 </section>
 
+<!--Store-sec-->
+<section id="store-sec">
+    <div id="item-form-tittle">
+        <h1>Store</h1>
+    </div>
+
+    <div id="ItemSearch">
+        <form class="row g-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="search Item" aria-label="search" aria-describedby="item-search-btn">
+                <button class="btn btn-outline-secondary" type="button" id="item-search-btn">Search</button>
+            </div>
+
+            <div class="col-md-6">
+                <label for="itemID" class="form-label">ID:</label>
+                <input type="text" class="form-control" id="itemID">
+            </div>
+            <div class="col-md-6">
+                <label for="itemName" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="itemName">
+            </div>
+            <div class="col-md-6">
+                <label for="itemQty" class="form-label">Qty:</label>
+                <input type="text" class="form-control" id="itemQty">
+            </div>
+            <div class="col-md-6">
+                <label for="itemPrice" class="form-label">Price:</label>
+                <input type="text" class="form-control" id="itemPrice">
+            </div>
+
+            <div class="col-12">
+                <button type="button" class="btn btn-warning">Update</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="newItem">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newItemForm">
+            New Item
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="newItemForm" tabindex="-1" aria-labelledby="newItemForm-Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="newItemForm-Label">New Item</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="Id" class="form-label">ID:</label>
+                            <input type="text" class="form-control" id="Id" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="Name" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Qty" class="form-label">Qty:</label>
+                            <input type="text" class="form-control" id="Qty" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Price" class="form-label">Price:</label>
+                            <input type="text" class="form-control" id="Price" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="itemTable">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Price: Rs.</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
 
 
 
@@ -423,18 +573,38 @@
 <script>
     $('#login-sec').css({display:'none'});
     $('#home-sec').css({display:'none'});
+    $('#customer-sec').css({display:'none'});
+    $('#store-sec').css({display:'none'});
 
     /*home-sec*/
     $('#nav-home').on('click',()=>{
         $('#login-sec').css({display:'none'});
+        $('#store-sec').css({display:'none'});
+        $('#customer-sec').css({display:'none'});
         $('#home-sec').css({display:'block'});
-    });
+    })
 
     /*login-sec*/
     $('#nav-login').on('click',()=>{
         $('#home-sec').css({display:'none'});
+        $('#store-sec').css({display:'none'});
+        $('#customer-sec').css({display:'none'});
         $('#login-sec').css({display:'block'});
+    })
 
+    /*customer-sec*/
+    $('#nav-customer').on('click',()=>{
+        $('#home-sec').css({display:'none'});
+        $('#login-sec').css({display:'none'});
+        $('#store-sec').css({display:'none'});
+        $('#customer-sec').css({display:'block'});
+    })
+    /*store-sec*/
+    $('#nav-store').on('click',()=>{
+        $('#home-sec').css({display:'none'});
+        $('#login-sec').css({display:'none'});
+        $('#store-sec').css({display:'block'});
+        $('#customer-sec').css({display:'none'});
     })
 </script>
 
