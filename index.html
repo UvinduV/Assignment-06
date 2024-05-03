@@ -58,7 +58,7 @@
         }
 
         /*-home-*/
-        #home-sec{
+        body{
             background: lightgray;
         }
         #home-sec>#sidebtn{
@@ -83,13 +83,13 @@
             top: 10px;
 
         }
-        #div1{
+        #sidebtn>a>#div1{
             opacity: 1;
         }
-        #div2{
+        #sidebtn>a>#div2{
             opacity: 75%;
         }
-        #div3{
+        #sidebtn>a>#div3{
             opacity: 50%;
         }
         .BtnManage>h4{
@@ -108,14 +108,11 @@
             opacity: 1;
 
         }
-
         #home-sec>h2{
             text-decoration-style: dashed;
             position: absolute;
             top: 550px;
             right: 30px;
-
-
         }
         #home-sec>h1{
             font-size: 250px;
@@ -129,6 +126,40 @@
         }
         .card-body{
             box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        }
+
+        /*-customer-*/
+        #customerSearch{
+            width: 800px;
+            height: 300px;
+            border-radius: 10px;
+            background: whitesmoke;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        #newCust{
+            position: absolute;
+            top: 100px;
+            right: 130px;
+            margin: auto;
+        }
+        #custTable{
+            width: 1000px;
+            position: absolute;
+            top: 420px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        #form-tittle{
+            position: absolute;
+            left: 20px;
+            font-family: sans-serif;
         }
 
 
@@ -147,7 +178,7 @@
                     <span class="nav-link" id="nav-home">Home</span>
                 </li>
                 <li class="nav-item">
-                    <span class="nav-link" href="customer.html">Customer</span>
+                    <span class="nav-link" id="nav-customer">Customer</span>
                 </li>
                 <li class="nav-item">
                     <span class="nav-link" href="store.html">Store</span>
@@ -198,9 +229,9 @@
 
 <!--home-sec-->
 <section id="home-sec">
-    <h1>
+    <!--<h1>
         Sun Mart
-    </h1>
+    </h1>-->
     <br>
     <br>
     <div class="container text-center">
@@ -267,8 +298,121 @@
 
 </section>
 
-<!---->
+<!--customer-page-->
+<section id="customer-sec">
+    <div id="form-tittle">
+        <h1>Customers</h1>
+    </div>
 
+    <div id="customerSearch">
+        <form class="row g-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="search customer" aria-label="search" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+            </div>
+
+            <div class="col-md-6">
+                <label for="custID" class="form-label">ID:</label>
+                <input type="text" class="form-control" id="custID">
+            </div>
+            <div class="col-md-6">
+                <label for="custName" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="custName">
+            </div>
+            <div class="col-md-6">
+                <label for="custAddress" class="form-label">Address:</label>
+                <input type="text" class="form-control" id="custAddress">
+            </div>
+            <div class="col-md-6">
+                <label for="custContct" class="form-label">Contact:</label>
+                <input type="text" class="form-control" id="custContct">
+            </div>
+
+            <div class="col-12">
+                <button type="button" class="btn btn-warning">Update</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="newCust">
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            New Customer
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Customer Register</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="Id" class="form-label">ID:</label>
+                            <input type="text" class="form-control" id="Id" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="Name" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Address" class="form-label">Address:</label>
+                            <input type="text" class="form-control" id="Address" placeholder="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Contact" class="form-label">Contact:</label>
+                            <input type="text" class="form-control" id="Contact" placeholder="">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="custTable">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Contact</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
 
 
 
@@ -286,12 +430,12 @@
         $('#home-sec').css({display:'block'});
     });
 
-    /*/!*login-sec*!/
+    /*login-sec*/
     $('#nav-login').on('click',()=>{
         $('#home-sec').css({display:'none'});
         $('#login-sec').css({display:'block'});
 
-    })*/
+    })
 </script>
 
 </body>
