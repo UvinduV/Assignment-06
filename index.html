@@ -64,9 +64,9 @@
                 <label class="form-check-label" for="exampleCheck1">Remember me</label>
             </div>
 
-            <a href="">
+            <span>
                 <button id="btnSign" type="button" class="btn btn-primary col-md-6">Sign In</button>
-            </a>
+            </span>
 
         </form>
     </div>
@@ -534,82 +534,7 @@
 <script src="../assets/lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-<script>
-    $('#login-sec').css({display:'block'});
-    $('#home-sec').css({display:'none'});
-    $('#customer-sec').css({display:'none'});
-    $('#store-sec').css({display:'none'});
-    $('#order-sec').css({display:'none'});
-
-    /*home-sec*/
-    $('#nav-home').on('click',()=>{
-        $('#login-sec').css({display:'none'});
-        $('#store-sec').css({display:'none'});
-        $('#customer-sec').css({display:'none'});
-        $('#order-sec').css({display:'none'});
-        $('#home-sec').css({display:'block'});
-    })
-
-    /*login-sec*/
-    $('#nav-login').on('click',()=>{
-        $('#home-sec').css({display:'none'});
-        $('#store-sec').css({display:'none'});
-        $('#customer-sec').css({display:'none'});
-        $('#order-sec').css({display:'none'});
-        $('#login-sec').css({display:'block'});
-    })
-
-    /*customer-sec*/
-    $('#nav-customer').on('click',()=>{
-        $('#home-sec').css({display:'none'});
-        $('#login-sec').css({display:'none'});
-        $('#store-sec').css({display:'none'});
-        $('#order-sec').css({display:'none'});
-        $('#customer-sec').css({display:'block'});
-    })
-    /*store-sec*/
-    $('#nav-store').on('click',()=>{
-        $('#home-sec').css({display:'none'});
-        $('#login-sec').css({display:'none'});
-        $('#order-sec').css({display:'none'});
-        $('#customer-sec').css({display:'none'});
-        $('#store-sec').css({display:'block'});
-    })
-    $('#nav-order').on('click',()=>{
-        $('#home-sec').css({display:'none'});
-        $('#login-sec').css({display:'none'});
-        $('#customer-sec').css({display:'none'});
-        $('#store-sec').css({display:'none'});
-        $('#order-sec').css({display:'block'});
-    })
-
-    /*--home sectio-side btn*/
-
-    /*btn- customer*/
-    $('#nav-btn-customer').on('click',()=>{
-        $('#home-sec').css({display:'none'});
-        $('#login-sec').css({display:'none'});
-        $('#store-sec').css({display:'none'});
-        $('#order-sec').css({display:'none'});
-        $('#customer-sec').css({display:'block'});
-    })
-    /*btn-store*/
-    $('#nav-btn-store').on('click',()=>{
-        $('#home-sec').css({display:'none'});
-        $('#login-sec').css({display:'none'});
-        $('#order-sec').css({display:'none'});
-        $('#customer-sec').css({display:'none'});
-        $('#store-sec').css({display:'block'});
-    })
-    /*btn-orders*/
-    $('#nav-btn-order').on('click',()=>{
-        $('#home-sec').css({display:'none'});
-        $('#login-sec').css({display:'none'});
-        $('#customer-sec').css({display:'none'});
-        $('#store-sec').css({display:'none'});
-        $('#order-sec').css({display:'block'});
-    })
-</script>
+<script src="assets/js/pos-system.js"></script>
 
 </body>
 </html>
