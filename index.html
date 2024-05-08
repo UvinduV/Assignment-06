@@ -18,7 +18,7 @@
                 <img id="logo" src="assets/sunmartLogo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-center">
                 <b>Sun Mart</b>
             </a>
-            <ul class="nav nav-underline">
+            <ul id="nav-element" class="nav nav-underline">
                 <li class="nav-item">
                     <span class="nav-link" id="nav-home">Home</span>
                 </li>
@@ -33,7 +33,7 @@
                 </li>
                 <li class="nav-item">
                     <span class="" id="nav-login">
-                        <button type="button" class="btn btn-danger">Log Out</button>
+                        <button onclick="hideHeaderElement()" type="button" class="btn btn-danger">Log Out</button>
                     </span>
                 </li>
             </ul>
@@ -65,7 +65,7 @@
             </div>
 
             <span>
-                <button id="btnSign" type="button" class="btn btn-primary col-md-6">Sign In</button>
+                <button onclick="showHeaderElement()" id="btnSign" type="button" class="btn btn-primary col-md-6">Sign In</button>
             </span>
 
         </form>

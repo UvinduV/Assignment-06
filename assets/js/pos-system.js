@@ -80,3 +80,15 @@ $('#nav-btn-order').on('click',()=>{
     $('#store-sec').css({display:'none'});
     $('#order-sec').css({display:'block'});
 })
+
+
+/*------------------------------------------*/
+var headerNav=document.getElementById('nav-element');
+headerNav.style.display='none';
+
+function showHeaderElement(){
+    headerNav.style.display="";
+}
+function hideHeaderElement(){
+    headerNav.style.display='none';
+}
