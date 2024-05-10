@@ -47,7 +47,6 @@ $("#btn-saveCustomer").on('click', () => {
         custcontact:custcontact
     }
 
-    /*let student = new StudentModel(id,firstName,lastName,address,program);*/
 
     customers.push(customer);
     console.log("pass to array");
