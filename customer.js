@@ -56,6 +56,25 @@ $("#btn-saveCustomer").on('click', () => {
 
 });
 
+$("#btn-update").on('click', () =>{
+    var custid = $("#custID").val();
+
+    var custname = $("#custName").val();
+
+    var custaddress = $("#custAddress").val();
+
+    var custcontact = $("#custContct").val();
+
+    let customerobj= {...customers[recordIndex]};
+
+    customerobj.custId=custid;
+    customerobj.custName=custname;
+    customerobj.custAddress=custaddress;
+    customerobj.custContact=custcontact;
+
+    loadTable();
+
+});
 
 
 
