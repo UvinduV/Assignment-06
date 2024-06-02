@@ -1,4 +1,5 @@
 var customers=[];
+var recordIndex;
 function loadTable(){
     $("#custTableBody").empty();
 
@@ -52,5 +53,29 @@ $("#btn-saveCustomer").on('click', () => {
     console.log("pass to array");
 
     loadTable();
+
+});
+
+
+
+
+$("#custTableBody").on('click','tr', function (){
+    let index = $(this).index();
+    recordIndex = index;
+
+    let id = $(this).find(".customer-id-value").text();
+    let name = $(this).find(".customer-name-value").text();
+    let address = $(this).find(".customer-address-value").text();
+    let contact = $(this).find(".customer-contact-value").text();
+
+    console.log("hello"+id);
+    id= "C001";
+    name="varuni";
+
+    $("#custID").val(id);
+    $("#custName").val(name);
+    $("#custAddress").val(address);
+    $("#custContct").val(contact);
+    /*$(`input[name="flexRadioDefault"][value=${program}]`).prop('checked',true);*/
 
 });
