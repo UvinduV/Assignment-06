@@ -29,14 +29,6 @@ $("#btn-saveCustomer").on('click', () => {
 
     var custcontact = $("#nCust-Contact").val();
 
-    /*console.log("cust-ID: ", custid);
-    console.log("cust-Name: ", custname);
-    console.log("cust-Address: ", custaddress);
-    console.log("cust-contact: ", custcontact);*/
-
-
-    /*console.log(record);
-    $("#custTableBody").append(record);*/
 
 
     /*let customer={
