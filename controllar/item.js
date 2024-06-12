@@ -1,5 +1,5 @@
 import ItemModel from "../model/ItemModel.js";
-import {items} from "../db/db.js";
+import {customers, items} from "../db/db.js";
 
 var recordIndex;
 function loadTable(){
@@ -42,6 +42,28 @@ $("#btn-saveItem").on('click', () => {
     loadTable();
 
 });
+
+$("#btn-UpdateItem").on('click', () =>{
+    var itemtid = $("#itemID").val();
+
+    var itemname = $("#itemName").val();
+
+    var itemqty = $("#itemQty").val();
+
+    var itemprice = $("#itemPrice").val();
+
+    console.log(itemtid);
+    console.log(itemname);
+    console.log(itemqty);
+    console.log(itemprice);
+
+    items[recordIndex] = new ItemModel(itemtid,itemname,itemqty,itemprice);
+
+    loadTable(items);
+
+});
+
+
 
 $("#itemTableBody").on('click','tr', function (){
     let index = $(this).index();
