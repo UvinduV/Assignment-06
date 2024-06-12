@@ -1,4 +1,7 @@
-var customers=[];
+/*var customers=[];*/
+import {customers} from "../db/db.js"
+
+
 var recordIndex;
 function loadTable(){
     $("#custTableBody").empty();
