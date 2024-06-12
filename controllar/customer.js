@@ -1,6 +1,6 @@
 /*var customers=[];*/
-import CustomerModel from "./model/CustomerModel.js";
-import {customers} from "./db/db.js"
+import CustomerModel from "../model/CustomerModel.js";
+import {customers} from "../db/db.js"
 
 var recordIndex;
 function loadTable(){
