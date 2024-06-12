@@ -63,7 +63,13 @@ $("#btn-UpdateItem").on('click', () =>{
 
 });
 
+$("#btn-DeleteItem").on('click', () => {
+    items.splice(recordIndex,1);
+    loadTable();
+    console.log("delete item");
 
+
+});
 
 $("#itemTableBody").on('click','tr', function (){
     let index = $(this).index();
