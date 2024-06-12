@@ -42,3 +42,23 @@ $("#btn-saveItem").on('click', () => {
     loadTable();
 
 });
+
+$("#itemTableBody").on('click','tr', function (){
+    let index = $(this).index();
+    recordIndex = index;
+
+    let id = $(this).find(".item-id-value").text();
+    let name = $(this).find(".item-name-value").text();
+    let qty = $(this).find(".item-qty-value").text();
+    let price = $(this).find(".item-price-value").text();
+
+    console.log("hello"+id+name+qty+price);
+
+
+    $("#itemID").val(id);
+    $("#itemName").val(name);
+    $("#itemQty").val(qty);
+    $("#itemPrice").val(price);
+
+
+});
