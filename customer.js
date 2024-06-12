@@ -7,10 +7,10 @@ function loadTable(){
 
     customers.map((item,index)=>{
         var record = `<tr>
-            <td class="newcustomer-id-value">${item.custid}</td>
-            <td class="newcutomer-name-value">${item.custname}</td>
-            <td class="newcustomer-address-value">${item.custaddress}</td>
-            <td class="newcustomer-contact-value">${item.custcontact}</td>
+            <td class="customer-id-value">${item.custid}</td>
+            <td class="customer-name-value">${item.custname}</td>
+            <td class="customer-address-value">${item.custaddress}</td>
+            <td class="customer-contact-value">${item.custcontact}</td>
         </tr>`
         $("#custTableBody").append(record);
     })
@@ -56,7 +56,7 @@ $("#btn-saveCustomer").on('click', () => {
 
 });
 
-$("#btn-update").on('click', () =>{
+$("#btnCustUpdate").on('click', () =>{
     var custid = $("#custID").val();
 
     var custname = $("#custName").val();
@@ -72,7 +72,15 @@ $("#btn-update").on('click', () =>{
     customerobj.custAddress=custaddress;
     customerobj.custContact=custcontact;
 
+    console.log("helo"+customerobj.custName);
+
     loadTable();
+
+});
+
+$("#btnCustDelete").on('click', () => {
+    console.log("delete cust");
+
 
 });
 
@@ -87,14 +95,13 @@ $("#custTableBody").on('click','tr', function (){
     let address = $(this).find(".customer-address-value").text();
     let contact = $(this).find(".customer-contact-value").text();
 
-    console.log("hello"+id);
-    id= "C001";
-    name="varuni";
+    console.log("hello"+id+name+address+contact);
+
 
     $("#custID").val(id);
     $("#custName").val(name);
     $("#custAddress").val(address);
     $("#custContct").val(contact);
-    /*$(`input[name="flexRadioDefault"][value=${program}]`).prop('checked',true);*/
+
 
 });
