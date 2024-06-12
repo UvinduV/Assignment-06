@@ -1,5 +1,7 @@
-import {items} from "../db/db";
+import ItemModel from "../model/ItemModel.js";
+import {items} from "../db/db.js";
 
+var recordIndex;
 function loadTable(){
     $("#itemTableBody").empty();
 
@@ -7,15 +9,15 @@ function loadTable(){
 
     items.map((item,index)=>{
         var record = `<tr>
-            <td class="customer-id-value">${item.itemid}</td>
-            <td class="customer-name-value">${item.custname}</td>
-            <td class="customer-address-value">${item.custaddress}</td>
-            <td class="customer-contact-value">${item.custcontact}</td>
+            <td class="item-id-value">${item.itemid}</td>
+            <td class="item-name-value">${item.itemname}</td>
+            <td class="item-qty-value">${item.itemqty}</td>
+            <td class="item-price-value">${item.itemprice}</td>
         </tr>`
-        $("#custTableBody").append(record);
+        $("#itemTableBody").append(record);
     })
 }
-$("#btn-saveCustomer").on('click', () => {
+$("#btn-saveItem").on('click', () => {
     var itemid = $("#nItem-Id").val();
 
     var itemname = $("#nItem-Name").val();
@@ -24,11 +26,17 @@ $("#btn-saveCustomer").on('click', () => {
 
     var itemprice = $("#newItem-Price").val();
 
+    /*let item={
+        itemid: itemid,
+        itemname:itemname,
+        itemqty:itemqty,
+        itemprice:itemprice
+    }*/
 
-    let customer=new CustomerModel(custid,custname,custaddress,custcontact);
+    let item=new ItemModel(itemid,itemname,itemqty,itemprice);
 
 
-    customers.push(customer);
+    items.push(item);
     console.log("pass to array");
 
     loadTable();

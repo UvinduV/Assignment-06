@@ -23,18 +23,18 @@ export default class CustomerModel{
     }
 
     set custid(custid){
-        this._cusId = custid;
+        this._custId = custid;
     }
 
     set custname(custname){
-        this._cusName = custname;
+        this._custName = custname;
     }
 
     set custaddress(custaddress){
-        this._cusAddress = custaddress;
+        this._custAddress = custaddress;
     }
 
     set custcontact(custcontact){
-        this._cusTel = custcontact;
+        this._custTel = custcontact;
     }
 }
