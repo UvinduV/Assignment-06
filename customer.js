@@ -64,20 +64,20 @@ $("#btnCustUpdate").on('click', () =>{
 
     var custcontact = $("#custContct").val();
 
-    let customerobj= {...customers[recordIndex]};
+    console.log(custid);
+    console.log(custname);
+    console.log(custaddress);
+    console.log(custcontact);
 
-    customerobj.custId=custid;
-    customerobj.custName=custname;
-    customerobj.custAddress=custaddress;
-    customerobj.custContact=custcontact;
+    customers[recordIndex] = new CustomerModel(custid,custname,custaddress,custcontact);
 
-    console.log("helo"+customerobj.custName);
-
-    loadTable();
+    loadTable(customers);
 
 });
 
 $("#btnCustDelete").on('click', () => {
+    customers.splice(recordIndex,1);
+    loadTable();
     console.log("delete cust");
 
 
