@@ -102,56 +102,60 @@ $(document).ready(() => {
         }
     });
     /*Add to Cart*/
-    function loadItemCart(itemcode,itemname,qty,unitprice){
+    function loadItemCart(){
         $('#item-cart-body').empty();
 
-        /*orders.map((item,index) => {
+        cart.map((item,index) => {
             var record = `<tr>
                 <td class="itemCode-value">${item.itemcode}</td>
-                <td class="item-code-value">${item.itemname}</td>
+                <td class="item-code-value">${item.customerId}</td>
                 <td class="qty-value">${item.qty}</td>
                 <td class="price-value">${item.unitprice}</td>
             <tr>`
             $("#item-cart-body").append(record);
 
-            console.log("add to cart:"+itemname);
-        });*/
-        /*orders.map((item,index) => {*/
-            var record = `<tr>
-                <td class="itemCode-value">${itemcode}</td>
-                <td class="item-code-value">${itemname}</td>
-                <td class="qty-value">${qty}</td>
-                <td class="price-value">${unitprice}</td>
-            <tr>`
-            $("#item-cart-body").append(record);
+            console.log("add to cart");
+        });
 
-            console.log("add to cart:"+itemname);
-        /*});*/
     }
     function calculatetotal(){
+        let startvalue =+$("#Total").val();
+
         const price = +$("#IPrice").val();
         let qty = +$("#IQty").val();
 
         let total = price * qty;
+        let lastTotal= (total + startvalue);
 
-        $("#Total").text(total);
+        /*$("#Total").text(total);*/
+        $("#Total").val(lastTotal);
+        console.log("total "+lastTotal);
     }
 
-    $('#btn-AddItem').on('click',() => {
-        /*calculatetotal();*/
 
+    $('#btn-AddItem').on('click',() => {
+
+        var orderid = $('#OrderID').val();
         var itemcode = $('#Itemid-dropdown option:selected').val();
         var itemname =$('#IName').val();
+        var customerId = $('#Customerid-dropdown option:selected').val();
+        var date = $('#current-Date').val();
         var qty = $('#IQty').val();
         var unitprice = $('#IPrice').val();
+        var total = $('#Total').text();
 
-        /*let addCart = new PlaceOrderModel(itemcode,itemname,qty,unitprice);
-        items.push(item);
-        console.log("pass to array");*/
-        loadItemCart(itemcode,itemname,qty,unitprice);
-        /*
-        reset();*/
+        let addCart = new PlaceOrderModel(orderid,itemcode,itemname,customerId,date,qty,unitprice,total);
+        cart.push(addCart);
+        console.log("pass to array");
 
+        loadItemCart();
+        calculatetotal();
+
+
+    });
+    $('#btn-purchase').on('click',() => {
+        cart.splice(0,10);
+        $('#item-cart-body').empty();
     });
 
 
