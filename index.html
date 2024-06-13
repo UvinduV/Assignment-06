@@ -360,16 +360,14 @@
                 <input type="text" class="form-control" id="OrderID">
             </div>
             <div class="col-md-6">
-                <label for="Date" class="form-label">Date</label>
-                <input type="date" class="form-control" id="Date">
+                <label for="current-Date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="current-Date">
             </div>
             <div class="col-md-6">
-                <label for="CustomerID" class="form-label">Customer ID:</label>
-                <select id="CustomerID" class="form-select">
+                <label for="Customerid-dropdown" class="form-label">Customer ID:</label>
+                <select id="Customerid-dropdown" class="form-select">
                     <option selected>select</option>
-                    <option>C001</option>
-                    <option>C002</option>
-                    <option>C003</option>
+
                 </select>
             </div>
             <div class="col-md-6">
@@ -397,20 +395,20 @@
                 <input type="text" class="form-control" id="IName">
             </div>
             <div class="col-md-6">
-                <label for="Price" class="form-label">Price</label>
-                <input type="text" class="form-control" id="Price">
+                <label for="IPrice" class="form-label">Price</label>
+                <input type="text" class="form-control" id="IPrice">
             </div>
             <div class="col-md-4">
                 <label for="QtyOnHand" class="form-label">Qty On Hand</label>
                 <input type="text" class="form-control" id="QtyOnHand">
             </div>
             <div class="col-md-2">
-                <label for="Qty" class="form-label">Qty :</label>
-                <input type="text" class="form-control" id="Qty">
+                <label for="IQty" class="form-label">Qty :</label>
+                <input type="text" class="form-control" id="IQty">
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-warning" type="button"> Add Item</button>
+                <button id="btn-AddItem" class="btn btn-warning" type="button"> Add Item</button>
             </div>
         </form>
     </div>
@@ -451,7 +449,7 @@
             </div>
 
             <div class="d-grid gap-2 col-4 mx-auto">
-                <button  id="purchase-btn" class="btn btn-primary btn-sm" type="button"><b>Purchase</b></button>
+                <button  id="btn-purchase" class="btn btn-primary btn-sm" type="button"><b>Purchase</b></button>
             </div>
 
         </form>
@@ -468,31 +466,11 @@
                 <th scope="col">Price (Rs.)</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="item-cart-body">
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
+
 
 
             </tbody>
