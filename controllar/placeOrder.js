@@ -153,10 +153,36 @@ $(document).ready(() => {
 
 
     });
+
+    $("#Discount").on('change', function() {
+        /*calculate();*/
+        const total = +$('#Total').val();
+        const discount = +$('#Discount').val();
+        console.log("total"+total);
+        console.log("dis-price"+discount)
+
+        let subtotal = total - (total * discount / 100);
+        $('#SubTotal').val(subtotal);
+        console.log("subTotal"+subtotal);
+    });
+
     $('#btn-purchase').on('click',() => {
         cart.splice(0,10);
         $('#item-cart-body').empty();
     });
+    /*function calculate(){
+        const total = +$('#Total').val();
+        const discount = +$('#Discount').val();
+        console.log("total"+total);
+        console.log("dis-price"+discount)
+
+
+        let subtotal = total + (total * discount / 100);
+        $('#SubTotal').val(subtotal);
+        console.log("subTotal"+subtotal);
+    }*/
+
+
 
 
     /*var orderid = $('#OrderID').val();
