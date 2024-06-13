@@ -142,17 +142,18 @@ $(document).ready(() => {
         var date = $('#current-Date').val();
         var qty = $('#IQty').val();
         var unitprice = $('#IPrice').val();
-        var total = $('#Total').text();
+        var totalprice = $('#Total').text();
 
-        let addCart = new PlaceOrderModel(orderid,itemcode,itemname,customerId,date,qty,unitprice,total);
+        let addCart = new PlaceOrderModel(orderid,itemcode,itemname,customerId,date,qty,unitprice,totalprice);
         cart.push(addCart);
         console.log("pass to array");
 
         loadItemCart();
         calculatetotal();
 
-
     });
+
+    /*calculate sub total*/
 
     $("#Discount").on('change', function() {
         /*calculate();*/
@@ -163,24 +164,55 @@ $(document).ready(() => {
 
         let subtotal = total - (total * discount / 100);
         $('#SubTotal').val(subtotal);
+
         console.log("subTotal"+subtotal);
     });
 
+    /*Add Order Table*/
+    function loadOrderTable(){
+        $('#OrderTableBody').empty();
+
+        orders.map((item,index) => {
+            var record = `<tr>
+                <td class="orderid-value">${item.orderid}</td>
+                <td class="date-value">${item.date}</td>
+                <td class="customerId-value">${item.customerId}</td>
+                <td class="total-value">${item.totalprice}</td>
+            <tr>`
+            $("#OrderTableBody").append(record);
+
+            console.log("add to cart");
+        });
+    }
+
     $('#btn-purchase').on('click',() => {
+
+        var orderid = $('#OrderID').val();
+        var itemcode = $('#Itemid-dropdown option:selected').val();
+        var customerId = $('#Customerid-dropdown option:selected').val();
+        var date = $('#current-Date').val();
+        var qty = $('#IQty').val();
+        var unitprice = $('#IPrice').val();
+        var totalprice = $('#SubTotal').val();
+
+        let order = new PlaceOrderModel(orderid,itemcode,customerId,date,qty,unitprice,totalprice);
+        orders.push(order);
+        console.log("pass to orders array");
+
+        console.log("Sub total in purches "+totalprice);
+
+        loadOrderTable();
+        calculateBalance();
+
         cart.splice(0,10);
         $('#item-cart-body').empty();
     });
-    /*function calculate(){
-        const total = +$('#Total').val();
-        const discount = +$('#Discount').val();
-        console.log("total"+total);
-        console.log("dis-price"+discount)
 
 
-        let subtotal = total + (total * discount / 100);
-        $('#SubTotal').val(subtotal);
-        console.log("subTotal"+subtotal);
-    }*/
+    function calculateBalance(){
+
+
+    }
 
 
 
@@ -196,15 +228,6 @@ $(document).ready(() => {
 
     let order = new PlaceOrderModel(orderid,itemcode,customerId,date,qty,unitprice,total);
 */
-
-
-
-
-
-
-
-
-
 
 
 

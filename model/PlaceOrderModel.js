@@ -1,5 +1,5 @@
 export default class PlaceOrderModel{
-    constructor(orderid,itemcode,itemname,customerId,date,qty,unitprice,total) {
+    constructor(orderid,itemcode,itemname,customerId,date,qty,unitprice,totalprice) {
         this._orderid = orderid;
         this._itemcode = itemcode;
         this._itemname= itemname;
@@ -7,7 +7,7 @@ export default class PlaceOrderModel{
         this._date = date;
         this._qty = qty;
         this._unitprice = unitprice;
-        this._total = total;
+        this._totalprice = totalprice;
     }
     /*constructor(itemcode,itemname,qty,unitprice) {
         this._itemcode = itemcode;
@@ -42,8 +42,8 @@ export default class PlaceOrderModel{
         return this._unitprice;
     }
 
-    get total(){
-        return this._total;
+    get totalprice(){
+        return this._totalprice;
     }
 
     set orderid(orderid){
@@ -73,8 +73,8 @@ export default class PlaceOrderModel{
         this._unitprice= unitprice;
     }
 
-    set total(total){
-        this._total = total;
+    set totalprice(totalprice){
+        this._total = totalprice;
     }
 
 }
