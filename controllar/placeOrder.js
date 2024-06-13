@@ -1,5 +1,6 @@
 import PlaceOrderModel from "../model/PlaceOrderModel.js";
-import {orders,customers,items} from "../db/db.js";
+import {orders,customers,items,cart} from "../db/db.js";
+
 
 let currentOrderId = 1;
 
@@ -86,6 +87,86 @@ $(document).ready(() => {
     $("#Itemid-dropdown").on('focus',()=>{
         loadItemIds();
     });
+    $("#Itemid-dropdown").on('change', function() {
+        const selectedItemId = $(this).val();
+        const selectedItem = items.find(item => item.itemid === selectedItemId);
+
+        if (selectedItem) {
+            $("#IName").val(selectedItem.itemname);
+            $("#IPrice").val(selectedItem.itemprice);
+            $("#QtyOnHand").val(selectedItem.itemqty);
+        } else {
+            $("#IName").val('');
+            $("#IPrice").val('');
+            $("#QtyOnHand").val('');
+        }
+    });
+    /*Add to Cart*/
+    function loadItemCart(itemcode,itemname,qty,unitprice){
+        $('#item-cart-body').empty();
+
+        /*orders.map((item,index) => {
+            var record = `<tr>
+                <td class="itemCode-value">${item.itemcode}</td>
+                <td class="item-code-value">${item.itemname}</td>
+                <td class="qty-value">${item.qty}</td>
+                <td class="price-value">${item.unitprice}</td>
+            <tr>`
+            $("#item-cart-body").append(record);
+
+            console.log("add to cart:"+itemname);
+        });*/
+        /*orders.map((item,index) => {*/
+            var record = `<tr>
+                <td class="itemCode-value">${itemcode}</td>
+                <td class="item-code-value">${itemname}</td>
+                <td class="qty-value">${qty}</td>
+                <td class="price-value">${unitprice}</td>
+            <tr>`
+            $("#item-cart-body").append(record);
+
+            console.log("add to cart:"+itemname);
+        /*});*/
+    }
+    function calculatetotal(){
+        const price = +$("#IPrice").val();
+        let qty = +$("#IQty").val();
+
+        let total = price * qty;
+
+        $("#Total").text(total);
+    }
+
+    $('#btn-AddItem').on('click',() => {
+        /*calculatetotal();*/
+
+        var itemcode = $('#Itemid-dropdown option:selected').val();
+        var itemname =$('#IName').val();
+        var qty = $('#IQty').val();
+        var unitprice = $('#IPrice').val();
+
+        /*let addCart = new PlaceOrderModel(itemcode,itemname,qty,unitprice);
+        items.push(item);
+        console.log("pass to array");*/
+        loadItemCart(itemcode,itemname,qty,unitprice);
+        /*
+        reset();*/
+
+    });
+
+
+    /*var orderid = $('#OrderID').val();
+    var itemcode = $('#Itemid-dropdown option:selected').val();
+    var customerId = $('#Customerid-dropdown option:selected').val();
+    var date = $('#current-Date').val();
+    var qty = $('#IQty').val();
+    var unitprice = $('#IPrice').val();
+    var total = $('#Total').text();
+
+
+    let order = new PlaceOrderModel(orderid,itemcode,customerId,date,qty,unitprice,total);
+*/
+
 
 
 
