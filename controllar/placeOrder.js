@@ -185,6 +185,7 @@ $(document).ready(() => {
         });
     }
 
+
     $('#btn-purchase').on('click',() => {
 
         var orderid = $('#OrderID').val();
@@ -208,10 +209,19 @@ $(document).ready(() => {
         $('#item-cart-body').empty();
     });
 
-
     function calculateBalance(){
+        const cash = +$('#Cash').val();
+        const subTotal = +$('#SubTotal').val();
 
+        let balance;
 
+        if(cash > subTotal){
+            balance = cash - subTotal;
+            $('#Balance').val(balance);
+        }else {
+            console.log("less cash amount");
+        }
+        console.log("total"+subTotal);
     }
 
 
