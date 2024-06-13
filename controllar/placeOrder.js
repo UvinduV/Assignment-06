@@ -1,5 +1,5 @@
 import PlaceOrderModel from "../model/PlaceOrderModel.js";
-import {orders,customers} from "../db/db.js";
+import {orders,customers,items} from "../db/db.js";
 
 let currentOrderId = 1;
 
@@ -61,6 +61,32 @@ $(document).ready(() => {
             $("#Contact").val('');
         }
     });
+    /* Add Item */
+    function loadItemIds(){
+        const $itemDropdown = $('#Itemid-dropdown');
+
+        $itemDropdown.empty();
+
+        const defaultOption = $('<option>',{
+            text: 'Select Item ID',
+            value: ''
+        });
+
+        $itemDropdown.append(defaultOption);
+
+        items.forEach(item => {
+            const option = $('<option>',{
+                value: item.itemid,
+                text: item.itemid
+            });
+            $itemDropdown.append(option);
+        });
+    }
+
+    $("#Itemid-dropdown").on('focus',()=>{
+        loadItemIds();
+    });
+
 
 
 
