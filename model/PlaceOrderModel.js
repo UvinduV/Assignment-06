@@ -1,2 +1,2 @@
-class PlaceOrderModel{
+export default class PlaceOrderModel{
 }

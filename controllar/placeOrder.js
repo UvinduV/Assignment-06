@@ -1,4 +1,5 @@
-/*import {orders} from "../db/db";*/
+import PlaceOrderModel from "../model/PlaceOrderModel.js";
+import {orders,customers} from "../db/db.js";
 
 let currentOrderId = 1;
 
@@ -7,7 +8,7 @@ $(document).ready(() => {
     setDate();
 
     function generateOrderId() {
-        const orderId = 'PO' + currentOrderId.toString().padStart(3,'0');
+        const orderId = 'S' + currentOrderId.toString().padStart(3,'0');
         $("#OrderID").val(orderId);
         currentOrderId++;
     }
@@ -22,6 +23,44 @@ $(document).ready(() => {
 
         $('#current-Date').val(today);
     }
+    function loadCustomerIds() {
+        const $customerDropdown = $('#Customerid-dropdown');
+
+        $customerDropdown.empty();
+
+        const defaultOption = $('<option>', {
+            text: 'Select Customer ID',
+            value: ''
+        });
+
+        $customerDropdown.append(defaultOption);
+
+
+        customers.forEach(customer => {
+            const option = $('<option>', {
+                value: customer.custid,
+                text: customer.custid
+            });
+            $customerDropdown.append(option);
+        });
+
+    }
+
+    $("#Customerid-dropdown").on('focus',()=>{
+        loadCustomerIds();
+    });
+    $("#Customerid-dropdown").on('change', function() {
+        const selectedCustomerId = $(this).val();
+        const selectedCustomer = customers.find(customer => customer.custid === selectedCustomerId);
+
+        if (selectedCustomer) {
+            $("#CustomerName").val(selectedCustomer.custname);
+            $("#Contact").val(selectedCustomer.custcontact);
+        } else {
+            $("#CustomerName").val('');
+            $("#Contact").val('');
+        }
+    });
 
 
 
