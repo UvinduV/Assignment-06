@@ -101,6 +101,8 @@ $(document).ready(() => {
             $("#QtyOnHand").val('');
         }
     });
+
+
     /*Add to Cart*/
     function loadItemCart(){
         $('#item-cart-body').empty();
@@ -134,6 +136,10 @@ $(document).ready(() => {
 
 
     $('#btn-AddItem').on('click',() => {
+        /*if ($('#CustomerName').val('')){
+            alert('Please Enter Customer Details.');
+            return false ;
+        }*/
 
         var orderid = $('#OrderID').val();
         var itemcode = $('#Itemid-dropdown option:selected').val();
@@ -143,6 +149,7 @@ $(document).ready(() => {
         var qty = $('#IQty').val();
         var unitprice = $('#IPrice').val();
         var totalprice = $('#Total').text();
+
 
         let addCart = new PlaceOrderModel(orderid,itemcode,itemname,customerId,date,qty,unitprice,totalprice);
         cart.push(addCart);
@@ -177,7 +184,7 @@ $(document).ready(() => {
                 <td class="orderid-value">${item.orderid}</td>
                 <td class="date-value">${item.date}</td>
                 <td class="customerId-value">${item.customerId}</td>
-                <td class="total-value">${item.totalprice}</td>
+                <td class="total-value">${item.unitprice}</td>
             <tr>`
             $("#OrderTableBody").append(record);
 
@@ -224,18 +231,29 @@ $(document).ready(() => {
         console.log("total"+subTotal);
     }
 
+    function resetOrder(){
+        $('#Customerid-dropdown').val('');
+        $('#C').val('');
+        $('#itemQty').val('');
+        $('#itemPrice').val('');
+    }
 
-    /*var orderid = $('#OrderID').val();
-    var itemcode = $('#Itemid-dropdown option:selected').val();
-    var customerId = $('#Customerid-dropdown option:selected').val();
-    var date = $('#current-Date').val();
-    var qty = $('#IQty').val();
-    var unitprice = $('#IPrice').val();
-    var total = $('#Total').text();
+    /*function validateCart(){
 
-    let order = new PlaceOrderModel(orderid,itemcode,customerId,date,qty,unitprice,total);
-    */
+        const custName = $("#CustomerName").val();
 
+        if (custName.empty()) {
+            alert('Please Fill in Customer Form.');
+            return false;
+        }
 
+        const itemprice = $("#IPrice").val();
+
+        if (itemprice.empty()) {
+            alert('Please Fill in Customer Form.');
+            return false;
+        }
+
+    }*/
 
 });
