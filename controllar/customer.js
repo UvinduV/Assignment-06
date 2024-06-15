@@ -89,7 +89,7 @@ $("#btnCustUpdate").on('click', () =>{
     customers[recordIndex] = new CustomerModel(custid,custname,custaddress,custcontact);
 
     loadTable(customers);
-
+    resetCust();
 });
 
 $("#btnCustDelete").on('click', () => {
@@ -97,7 +97,7 @@ $("#btnCustDelete").on('click', () => {
     loadTable();
     console.log("delete cust");
 
-
+    resetCust();
 });
 
 
@@ -120,6 +120,12 @@ $("#custTableBody").on('click','tr', function (){
 
 
 });
+function resetCust(){
+    $('#custID').val('');
+    $('#custName').val('');
+    $('#custAddress').val('');
+    $('#custContct').val('');
+}
 
 function validateCustomer(){
     const custid =  $("#nCust-Id").val();
@@ -152,7 +158,6 @@ function validateCustomer(){
     const custcontact = $("#nCust-Contact").val();
 
     const isCusTelValidated = /^0\d{9}$/;
-
 
     if(!isCusTelValidated.test(custcontact)){
         alert('Invalid Customer Telephone number.');
