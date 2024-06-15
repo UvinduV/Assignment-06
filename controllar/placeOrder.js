@@ -184,7 +184,7 @@ $(document).ready(() => {
                 <td class="orderid-value">${item.orderid}</td>
                 <td class="date-value">${item.date}</td>
                 <td class="customerId-value">${item.customerId}</td>
-                <td class="total-value">${item.unitprice}</td>
+                <td class="total-value">${item.totalprice}</td>
             <tr>`
             $("#OrderTableBody").append(record);
 
@@ -197,13 +197,14 @@ $(document).ready(() => {
 
         var orderid = $('#OrderID').val();
         var itemcode = $('#Itemid-dropdown option:selected').val();
+        var itemname =$('#IName').val();
         var customerId = $('#Customerid-dropdown option:selected').val();
         var date = $('#current-Date').val();
         var qty = $('#IQty').val();
         var unitprice = $('#IPrice').val();
         var totalprice = $('#SubTotal').val();
 
-        let order = new PlaceOrderModel(orderid,itemcode,customerId,date,qty,unitprice,totalprice);
+        let order = new PlaceOrderModel(orderid,itemcode,itemname,customerId,date,qty,unitprice,totalprice);
         orders.push(order);
         console.log("pass to orders array");
 
@@ -214,6 +215,10 @@ $(document).ready(() => {
 
         cart.splice(0,10);
         $('#item-cart-body').empty();
+
+        resetOrder();
+        alert('Place Order Successfully .');
+        generateOrderId();
     });
 
     function calculateBalance(){
@@ -232,10 +237,11 @@ $(document).ready(() => {
     }
 
     function resetOrder(){
-        $('#Customerid-dropdown').val('');
-        $('#C').val('');
-        $('#itemQty').val('');
-        $('#itemPrice').val('');
+        $('#CustomerName').val('');
+        $('#Contact').val('');
+        $('#IName').val('');
+        $('#IQty').val('');
+        $('#IPrice').val('');
     }
 
     /*function validateCart(){
