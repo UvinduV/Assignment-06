@@ -19,7 +19,7 @@ function loadTable(){
 }
 
 $("#btn-Nitem").on('click', () => {
-    generateItemId()
+    generateItemId();
 });
 
 let currentitemId = 1;
@@ -52,8 +52,15 @@ $("#btn-saveItem").on('click', () => {
     console.log("pass to array");
 
     loadTable();
-
+    resetNewItem();
+    generateItemId();
 });
+function resetNewItem(){
+    $('#nItem-Name').val('');
+    $('#nItem-Qty').val('');
+    $('#newItem-Price').val('');
+}
+
 
 $("#btn-UpdateItem").on('click', () =>{
     var itemtid = $("#itemID").val();
@@ -72,7 +79,7 @@ $("#btn-UpdateItem").on('click', () =>{
     items[recordIndex] = new ItemModel(itemtid,itemname,itemqty,itemprice);
 
     loadTable(items);
-
+    resetItem();
 });
 
 $("#btn-DeleteItem").on('click', () => {
@@ -80,7 +87,7 @@ $("#btn-DeleteItem").on('click', () => {
     loadTable();
     console.log("delete item");
 
-
+    resetItem();
 });
 
 $("#itemTableBody").on('click','tr', function (){
@@ -100,6 +107,12 @@ $("#itemTableBody").on('click','tr', function (){
     $("#itemQty").val(qty);
     $("#itemPrice").val(price);
 
-
 });
+
+function resetItem(){
+    $('#itemID').val('');
+    $('#itemName').val('');
+    $('#itemQty').val('');
+    $('#itemPrice').val('');
+}
 
