@@ -32,6 +32,10 @@ function generateCustomerId() {
 }
 
 $("#btn-saveCustomer").on('click', () => {
+    if (!validateCustomer()) {
+        return;
+    }
+
     var custid = $("#nCust-Id").val();
 
     var custname = $("#nCust-Name").val();
@@ -46,12 +50,19 @@ $("#btn-saveCustomer").on('click', () => {
         custaddress:custaddress,
         custcontact:custcontact
     }*/
+    let isDuplicate = customers.some(customer => customer.custid === custid);
+
+    if(isDuplicate){
+        alert('Customer ID Already Exists. Please Try another ID');
+        return;
+    }
 
     let customer=new CustomerModel(custid,custname,custaddress,custcontact);
 
     customers.push(customer);
     console.log("pass to array");
     loadTable();
+
     resetNewCust();
     generateCustomerId();
 });
@@ -90,7 +101,6 @@ $("#btnCustDelete").on('click', () => {
 });
 
 
-
 $("#custTableBody").on('click','tr', function (){
     let index = $(this).index();
     recordIndex = index;
@@ -110,3 +120,45 @@ $("#custTableBody").on('click','tr', function (){
 
 
 });
+
+function validateCustomer(){
+    const custid =  $("#nCust-Id").val();
+
+    const isCusIdValidated = /[C][0-9]{3,}/;
+
+    if (!isCusIdValidated.test(custid)) {
+        alert('Invalid Customer ID. It should be in the formated in C000.');
+        return false;
+    }
+
+    const custname = $("#nCust-Name").val();
+
+    const isCusNameValidated = /[A-Z][a-zA-Z\s]+/;
+
+    if(!isCusNameValidated.test(custname)){
+        alert('Invalid Customer Name. It should be start with a capital letter.');
+        return false;
+    }
+
+    const custaddress =  $("#nCust-Address").val();
+
+    const isCusAddressValidated = /[A-Z][a-zA-Z\s]+/;
+
+    if(!isCusAddressValidated.test(custaddress)){
+        alert('Invalid Customer Address. It should be start with a capital letter.');
+        return false;
+    }
+
+    const custcontact = $("#nCust-Contact").val();
+
+    const isCusTelValidated = /^0\d{9}$/;
+
+
+    if(!isCusTelValidated.test(custcontact)){
+        alert('Invalid Customer Telephone number.');
+        return false;
+    }
+    return true;
+
+}
+
