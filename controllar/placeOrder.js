@@ -225,8 +225,6 @@ $(document).ready(() => {
     }
 
 
-
-
     /*var orderid = $('#OrderID').val();
     var itemcode = $('#Itemid-dropdown option:selected').val();
     var customerId = $('#Customerid-dropdown option:selected').val();

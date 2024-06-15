@@ -160,6 +160,7 @@ function validateNewItem(){
     if (!isItemPriceValidated.test(itemPrice)) {
         alert('Invalid Item Price. It should be a positive Price.');
         return false;
+
     }
 
     return true;
