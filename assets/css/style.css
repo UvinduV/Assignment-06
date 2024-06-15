@@ -245,6 +245,25 @@ header>nav>div>a>img{
 #totalF-5col{
     margin-top: 0;
 }
+#btn-orderHistory{
+    width: 40px;
+    height: 200px;
+    color: white;
+    background: orangered;
+    border-radius: 50px;
+    position: absolute;
+    top: 110%;
+    left: 3%;
+    font-weight: bold;
+    border: 2px solid white;
+}
+.btn:active{
+    background: #ffffff;
+    color: blue;
+}
+.btn{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 #purchase-btn{
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
