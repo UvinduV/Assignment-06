@@ -235,9 +235,8 @@ $(document).ready(() => {
     var unitprice = $('#IPrice').val();
     var total = $('#Total').text();
 
-
     let order = new PlaceOrderModel(orderid,itemcode,customerId,date,qty,unitprice,total);
-*/
+    */
 
 
 

@@ -20,6 +20,17 @@ function loadTable(){
 }
 
 
+$("#btn-Ncustomer").on('click', () => {
+    generateCustomerId();
+});
+
+let currentCustId = 1;
+function generateCustomerId() {
+    const custId = 'C' + currentCustId.toString().padStart(3,'0');
+    $("#nCust-Id").val(custId);
+    currentCustId++;
+}
+
 $("#btn-saveCustomer").on('click', () => {
     var custid = $("#nCust-Id").val();
 
@@ -28,8 +39,6 @@ $("#btn-saveCustomer").on('click', () => {
     var custaddress = $("#nCust-Address").val();
 
     var custcontact = $("#nCust-Contact").val();
-
-
 
     /*let customer={
         custid: custid,
@@ -40,13 +49,18 @@ $("#btn-saveCustomer").on('click', () => {
 
     let customer=new CustomerModel(custid,custname,custaddress,custcontact);
 
-
     customers.push(customer);
     console.log("pass to array");
-
     loadTable();
-
+    resetNewCust();
+    generateCustomerId();
 });
+function resetNewCust(){
+    $('#nCust-Name').val('');
+    $('#nCust-Address').val('');
+    $('#nCust-Contact').val('');
+}
+
 $("#btnCustUpdate").on('click', () =>{
     var custid = $("#custID").val();
 
