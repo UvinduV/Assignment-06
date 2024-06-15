@@ -30,6 +30,10 @@ function generateItemId() {
 }
 
 $("#btn-saveItem").on('click', () => {
+    if (!validateNewItem()) {
+        return;
+    }
+
     var itemid = $("#nItem-Id").val();
 
     var itemname = $("#nItem-Name").val();
@@ -101,7 +105,6 @@ $("#itemTableBody").on('click','tr', function (){
 
     console.log("hello"+id+name+qty+price);
 
-
     $("#itemID").val(id);
     $("#itemName").val(name);
     $("#itemQty").val(qty);
@@ -114,5 +117,45 @@ function resetItem(){
     $('#itemName').val('');
     $('#itemQty').val('');
     $('#itemPrice').val('');
+}
+
+function validateNewItem(){
+    const itemCode = $("#nItem-Id").val();
+
+    const isItemCodeValidated = /[I][0-9]{3,}/;
+
+    if (!isItemCodeValidated.test(itemCode)) {
+        alert('Invalid Item Code. It should be in the format I000.');
+        return false;
+    }
+
+    const itemName = $("#nItem-Name").val();
+
+    const isItemNameValidated = /[A-Z][a-zA-Z\s]+/;
+
+    if (!isItemNameValidated.test(itemName)) {
+        alert('Invalid Item Name. It should start with a capital letter.');
+        return false;
+    }
+
+    const itemQty = $("#nItem-Qty").val();
+
+    const isItemQtyValidated = /^[1-9]\d*$/;
+
+    if (!isItemQtyValidated.test(itemQty)) {
+        alert('Invalid Item Qty. It should be a positive quantity.');
+        return false;
+    }
+
+    const itemPrice = $("#newItem-Price").val();
+
+    const isItemPriceValidated = /^\d+(\.\d{1,2})?$/;
+
+    if (!isItemPriceValidated.test(itemPrice)) {
+        alert('Invalid Item Price. It should be a positive Price.');
+        return false;
+    }
+
+    return true;
 }
 
