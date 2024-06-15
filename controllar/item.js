@@ -67,6 +67,9 @@ function resetNewItem(){
 
 
 $("#btn-UpdateItem").on('click', () =>{
+    if (!validateItem()) {
+        return;
+    }
     var itemtid = $("#itemID").val();
 
     var itemname = $("#itemName").val();
@@ -87,6 +90,9 @@ $("#btn-UpdateItem").on('click', () =>{
 });
 
 $("#btn-DeleteItem").on('click', () => {
+    if (!validateItem()) {
+        return;
+    }
     items.splice(recordIndex,1);
     loadTable();
     console.log("delete item");
@@ -148,6 +154,38 @@ function validateNewItem(){
     }
 
     const itemPrice = $("#newItem-Price").val();
+
+    const isItemPriceValidated = /^\d+(\.\d{1,2})?$/;
+
+    if (!isItemPriceValidated.test(itemPrice)) {
+        alert('Invalid Item Price. It should be a positive Price.');
+        return false;
+    }
+
+    return true;
+}
+
+function validateItem(){
+
+    const itemName = $("#itemName").val();
+
+    const isItemNameValidated = /[A-Z][a-zA-Z\s]+/;
+
+    if (!isItemNameValidated.test(itemName)) {
+        alert('Invalid Item Name. It should start with a capital letter.');
+        return false;
+    }
+
+    const itemQty = $("#itemQty").val();
+
+    const isItemQtyValidated = /^[1-9]\d*$/;
+
+    if (!isItemQtyValidated.test(itemQty)) {
+        alert('Invalid Item Qty. It should be a positive quantity.');
+        return false;
+    }
+
+    const itemPrice = $("#itemPrice").val();
 
     const isItemPriceValidated = /^\d+(\.\d{1,2})?$/;
 
