@@ -32,7 +32,7 @@ function generateCustomerId() {
 }
 
 $("#btn-saveCustomer").on('click', () => {
-    if (!validateCustomer()) {
+    if (!validateNewCustomer()) {
         return;
     }
 
@@ -73,6 +73,10 @@ function resetNewCust(){
 }
 
 $("#btnCustUpdate").on('click', () =>{
+    if (!validateCustomer()) {
+        return;
+    }
+
     var custid = $("#custID").val();
 
     var custname = $("#custName").val();
@@ -93,6 +97,10 @@ $("#btnCustUpdate").on('click', () =>{
 });
 
 $("#btnCustDelete").on('click', () => {
+    if (!validateCustomer()) {
+        return;
+    }
+
     customers.splice(recordIndex,1);
     loadTable();
     console.log("delete cust");
@@ -127,7 +135,7 @@ function resetCust(){
     $('#custContct').val('');
 }
 
-function validateCustomer(){
+function validateNewCustomer(){
     const custid =  $("#nCust-Id").val();
 
     const isCusIdValidated = /[C][0-9]{3,}/;
@@ -156,6 +164,37 @@ function validateCustomer(){
     }
 
     const custcontact = $("#nCust-Contact").val();
+
+    const isCusTelValidated = /^0\d{9}$/;
+
+    if(!isCusTelValidated.test(custcontact)){
+        alert('Invalid Customer Telephone number.');
+        return false;
+    }
+    return true;
+
+}
+
+function validateCustomer(){
+    const custname = $("#custName").val();
+
+    const isCusNameValidated = /[A-Z][a-zA-Z\s]+/;
+
+    if(!isCusNameValidated.test(custname)){
+        alert('Invalid Customer Name. It should be start with a capital letter.');
+        return false;
+    }
+
+    const custaddress =  $("#custAddress").val();
+
+    const isCusAddressValidated = /[A-Z][a-zA-Z\s]+/;
+
+    if(!isCusAddressValidated.test(custaddress)){
+        alert('Invalid Customer Address. It should be start with a capital letter.');
+        return false;
+    }
+
+    const custcontact = $("#custContct").val();
 
     const isCusTelValidated = /^0\d{9}$/;
 
