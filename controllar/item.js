@@ -17,6 +17,18 @@ function loadTable(){
         $("#itemTableBody").append(record);
     })
 }
+
+$("#btn-Nitem").on('click', () => {
+    generateItemId()
+});
+
+let currentitemId = 1;
+function generateItemId() {
+    const itemId = 'I' + currentitemId.toString().padStart(3,'0');
+    $("#nItem-Id").val(itemId);
+    currentitemId++;
+}
+
 $("#btn-saveItem").on('click', () => {
     var itemid = $("#nItem-Id").val();
 
